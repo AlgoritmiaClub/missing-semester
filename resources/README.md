@@ -8,6 +8,7 @@ videos, courses, articles, books, documentation, etc.
 ## Categories
 
 - [DSA](dsa/README.md). Data Structures and Algorithms.
+- [Math](math/README.md). Math for Computer Science.
 - [Tools](tools/README.md). Programmer tools.
 
 ## Contributing

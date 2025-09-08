@@ -16,6 +16,10 @@ approach it's still far from optimal as $n$ a is very large number.
 
 ### Sum Decomposition (sol 1)
 
+> For reference, See the Sums sections in the
+> [Discrete Math resources](../../../resources/math/discrete_math.md).
+> Mathemathics for Computer Science (MIT) lecture 05 is specially recommended.
+
 In order to optimize the solution we need to analyze it mathematically, notice
 that the sum of consecutive numbers has a closed form which derives from the
 gaussian sum.
