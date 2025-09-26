@@ -14,10 +14,11 @@
 -->
 
 [cph]: https://cses.fi/book/book.pdf
+[cpa]: https://cp-algorithms.com
 
 # Introduction to Competitive Programming
 
-`25/Sep/2025`
+`26/Sep/2025`
 
 ---
 
@@ -59,10 +60,12 @@ World Finals.
 
 In Mexico, the ICPC journey begins with the Gran Premio de México, a national
 series made up of three rounds. Teams from across the country participate in
-these contests, earning points at each event, their cumulative score determines
-whether they qualify for the ICPC Mexico Finals (regional). The top-performing
-teams from the Finals advance to the Latin America Championship (LAC) (super
-regional), and the very best continue on to the ICPC World Finals.
+these contests, earning points at each event. Their cumulative score determines
+whether they qualify for the ICPC Mexico Finals (regional). Teams that do not
+qualify directly still have a chance through the Repechaje, a wildcard round
+that offers additional spots in the Finals. The top-performing teams from the
+Finals advance to the Latin America Championship (LAC) (super regional), and the
+very best continue on to the ICPC World Finals.
 
 To prepare for these contests, many participants take part in the Training Camp
 Mexico (TCMX). This bootcamp brings together CP teams for intensive practice and
@@ -123,7 +126,7 @@ language (arithmetic, flow control, IO, etc), and the Standard Template Library
 (STL), nothing more. You will eventually use more obscure features (even dark
 magic), but certainly not at the beginning. Lastly, its recommended to use g++
 as your compiler, as it has useful extensions (like `bits/stdc++.h`).
-[Competitive Programmer’s Handbook](cph) contains an excellent introduction to
+[Competitive Programmer’s Handbook][cph] contains an excellent introduction to
 the C++ required for CP.
 
 > From the beginning, make the effort to understand the bit level details.
@@ -257,8 +260,31 @@ this topic.
 
 Good places to start are [codeforces EDU](https://codeforces.com/edu/course/2)
 (make sure to watch the theory before solving the first problems), and reading
-[Competitive Programmer’s Handbook](cph) while doing
+[Competitive Programmer’s Handbook][cph] while doing
 [cses](https://cses.fi/problemset/) problems.
+
+### How to Study Topics?
+
+When studying algorithms for competitive programming, focus on building a
+practical toolkit rather than trying to master everything before solving
+problems. Start with the fundamentals, such as those in the first chapter of the
+[Competitive Programmer’s Handbook][cph], and gradually move on to more advanced
+techniques needed for specialized problems. A reliable reference for standard CP
+methods is [CP-Algorithms][cpa].
+
+Always learn algorithms in context by linking them to the types of problems they
+solve and reinforcing your understanding with practice problems right away.
+Write your own implementations until you can reproduce them confidently and
+grasp the underlying ideas, then during contests rely on [CP-Algorithms][cpa]
+for quick checks or tested snippets. Ultimately, algorithms should be seen as
+tools to apply effectively under pressure, not just theoretical concepts to read
+about.
+
+### Which Roadmap Should You Use?
+
+Many suggest that the best roadmap is start with the basic techniques mentioned,
+and then gradually learn the topics by need. Still you can follow the
+[USACO Guide](https://usaco.guide) if you fell the need for a roadmap.
 
 ## Common Pitfalls
 
@@ -283,7 +309,10 @@ Good places to start are [codeforces EDU](https://codeforces.com/edu/course/2)
 
 ## Additional Resources
 
-- [Competitive Programmer’s Handbook](cph)
+- [USACO Guide](https://usaco.guide). Roadmap resource.
+- [CP-Algorithms][cpa]]. Standard reference for algorithms and techniques.
+
+- [Competitive Programmer’s Handbook][cph]
 - [How to start Competitive Programming? For
   beginners!](https://www.youtube.com/watch?v=xAeiXy8-9Y8)
 - [From Beginner to Grandmaster - Complete Roadmap for Competitive
