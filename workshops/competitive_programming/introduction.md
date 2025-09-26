@@ -146,10 +146,10 @@ your own.
 using namespace std;
 
 // Fast IO, unsynchronizes cin and cout with C IO
-#define FIO                                                        \
-  ios_base::sync_with_stdio(0); /* false */                        \
-  cin.tie(0);                   /* nullptr */                      \
-  cout.tie(0);                  /* nullptr */
+#define FIO                                     \
+    ios_base::sync_with_stdio(0); /* false */   \
+    cin.tie(0);                   /* nullptr */ \
+    cout.tie(0);                  /* nullptr */
 
 // type alias for commonly used long-named types
 typedef long long lli;
@@ -161,15 +161,17 @@ typedef long double ld;
 #define perr(x) cerr << #x << " " << (x) << endl
 #else
 #define perr(x) 0
-#endif // !ONLINE_JUDGE
+#endif  // !ONLINE_JUDGE
 
 // compacts very common loops
-#define fora(i, a, b) for(lli i = (a); (i) < (b); ++i) // [a -> b)
-#define ford(i, a, b) for(lli i = (a); (i)-- > (b);)   // [b <- a)
+#define fora(i, a, b) for (lli i = (a); (i) < (b); ++i)  // [a -> b)
+#define ford(i, a, b) for (lli i = (a); (i)-- > (b);)    // [b <- a)
 
-int main() {FIO;
-  /* problem */
-  return 0;
+int main()
+{
+    FIO;
+    /* problem */
+    return 0;
 }
 ```
 
