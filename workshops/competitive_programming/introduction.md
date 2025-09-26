@@ -13,9 +13,11 @@
 - Provide advice against common beguineer mistakes.
 -->
 
+[cph]: https://cses.fi/book/book.pdf
+
 # Introduction to Competitive Programming
 
-`24/Sep/2025`
+`25/Sep/2025`
 
 ---
 
@@ -40,13 +42,15 @@ opportunity to learn and improve yourself. Stay consistent, stay curious, and
 you’ll find that the discipline and resilience you build here will serve you far
 beyond the competitions themselves.
 
-## What is ICPC? Where do you register?
+## What is ICPC?
 
 The International Collegiate Programming Contest (ICPC) is the world’s largest
 and most prestigious CP competition for university students. Teams of three
 (with the option of a reserve member), along with their coach, work together to
 solve challenging algorithmic problems within a fixed time limit (usually 5
 hours).
+
+### How to Participate?
 
 To participate, form a team of three members plus a coach. Registration is
 handled through the official [ICPC website](https://icpc.global). Each region
@@ -67,35 +71,15 @@ mentorship.
 Check out the ICPC MX [contact](https://pda2024.icpcmexico.org/en/contact/)
 channels for the registration dates.
 
-## How to Program for CP
-
-Due to the particular set of constraints found in CP, code written for problems
-is not the same as other purposes, most importantly one must take into
-consideration the approximated performance on large inputs, and as time is of
-essence, it has to be written very fast.
-
-## What Language Should You Use?
-
-Objectively, C++. It's the best language for CP because of its performance,
-algorithm and data structure rich standard library and ease for parsing input.
-Although, its fine to start with a language you are more familiar with, but it's
-highly advised that you eventually transition to C++.
-
-The C++ needed to get started with CP comes down to the basic constructs of the
-language (arithmetic, flow control, IO, etc), and Standard Template Library
-(STL), nothing more. You will eventually use more obscure features (even dark
-magic), but certainly not at the beginning. Lastly, its recommended to use g++
-as your compiler, as it has useful extensions (like `bits/stdc++.h`).
-
-> From the beginning, make the effort to understand the bit level details.
-
-### How to Approach a Problem
+## How to Approach Problems?
 
 Before touching the keyboard, start by understanding what you are being asked,
 failing to fully understand the given problem is catastrophic (and also a very
 common mistake). After understanding your goal, reason about the problem by
 reducing the different parts of the problem to what you know (easier said than
 done).
+
+### Time and Space Analysis
 
 When you come up with ideas, first ensure that they fit the in time and space
 constraints, the rule of thumb is that for every second a computer can perform
@@ -106,8 +90,12 @@ complexity, and evaluate that function by the worst case (most of time that is
 the biggest $n$), for example, a $O(n^2)$ solution with $n \le 10^5$ will exceed
 1 second.
 
+### Testing Solutions in Paper
+
 Next briefly test your solution by hand with edge cases to ensure it will work,
-and iterate until you are certain of your solution.
+think of the worst possible cases on time and space, abnormal circumstances
+which may cause undefined behaviour (UB) in your code, like arithmetic overflows
+or invalid memory access access.
 
 Now you have to code your solution, make sure to have a clear idea of the code
 beforehand, this helps you to notice if your solution is even programmable (it
@@ -116,7 +104,31 @@ may be too long and complicated or straight impossible).
 If your submission is wrong take a step back, consider more edge cases, try to
 test them locally, or review your proposed solution.
 
-### Template
+## Programming for CP
+
+Due to the particular set of constraints found in CP, code written for problems
+is not the same as other purposes, most importantly one must take into
+consideration the approximated performance on large inputs, and as time is of
+essence, it has to be written very fast.
+
+### Which Language Should You Use?
+
+Objectively, C++. It's the best language for CP because of its performance,
+algorithm and data structure rich standard library and ease for parsing input.
+Although, its fine to start with a language you are more familiar with, but it's
+highly advised that you eventually transition to C++.
+
+The C++ needed to get started with CP comes down to the basic constructs of the
+language (arithmetic, flow control, IO, etc), and the Standard Template Library
+(STL), nothing more. You will eventually use more obscure features (even dark
+magic), but certainly not at the beginning. Lastly, its recommended to use g++
+as your compiler, as it has useful extensions (like `bits/stdc++.h`).
+[Competitive Programmer’s Handbook](cph) contains an excellent introduction to
+the C++ required for CP.
+
+> From the beginning, make the effort to understand the bit level details.
+
+### C++ Template
 
 In competitions you are usually allowed to have printed material, such as books,
 implementations of algorithms, and most importantly, a template with base
@@ -161,6 +173,24 @@ int main() {FIO;
 }
 ```
 
+### C++ Toolchain and Debugging
+
+To efficiently compile and test your code before submissions you can use many
+tools.
+
+- The compiler: Learn how to use the compiler effectively, how to understand
+  it's errors, and what flags are useful, like `-fsanitize=address` (sometimes
+  even used by judges).
+
+- The debugger: Use gdb for inspecting otherwise hard to print logic and state,
+  it may be hard to pick up, but you can completely inspect every variable and
+  flow control of your program. Use `-g` to compile with debugging symbols.
+
+- Printing output: This classic debugging method is recommended for fast
+  debugging and its useful when under a lot of preassure. Tip, use `cerr` (or
+  the `perr(x)` macro) instead of cout to separate your output from debugging
+  prints.
+
 ## Practice Platforms
 
 Online judges, problem sets, contest pages, are all web pages in which you can
@@ -178,6 +208,8 @@ contest simulations, etc.
   problems, excellent for learning the base techniques.
 - [**SPOJ (Sphere Online Judge)**](https://www.spoj.com/): Huge archive,
   includes classical problems and user-created ones.
+
+### Judge Results
 
 When you submit a solution on these platforms, you’ll usually get one of the
 following results:
@@ -203,20 +235,27 @@ due to syntax errors or using non-standard libraries).
 
 This is very opinionated, many people suggest different strategies and methods
 to follow, in the end, your goal should be to learn and get better at solving
-increasingly difficult problems, any resonable strategy in which notice notice
+increasingly difficult problems, any reasonable strategy in which notice notice
 improvement is likely a good path.
 
-Specially when starting, there are many strategies like
-`try for x time, if
-unable to solve, read the answer/hints`, although it may
-seem reasonable, you are not learning how to solve problems, you just let
-someone else think the answer for you, so be careful and try not to give up to
-easily. This is a recommended [blog](https://codeforces.com/blog/entry/98621) on
+Specially when starting, there are many strategies like.
+
+```
+try to solve the problem, if stuck/no-ideas for x time, read the answer/hints
+```
+
+Although it may seem reasonable, you are not learning how to solve problems, you
+just let someone else think the answer for you. This is why many great
+competitive programmers recommend to forget about editorials at all, but whether
+you want to follow that advice or not, use that strategy with moderation. If you
+feel stuck in a lot of problems, take a step back and try to think why that is,
+sometimes talking with someone who has overcomed those difficultities may help
+you. This is a recommended [blog](https://codeforces.com/blog/entry/98621) on
 this topic.
 
 Good places to start are [codeforces EDU](https://codeforces.com/edu/course/2)
 (make sure to watch the theory before solving the first problems), and reading
-[Competitive Programmer’s Handbook](https://cses.fi/book/book.pdf) while doing
+[Competitive Programmer’s Handbook](cph) while doing
 [cses](https://cses.fi/problemset/) problems.
 
 ## Common Pitfalls
@@ -242,7 +281,7 @@ Good places to start are [codeforces EDU](https://codeforces.com/edu/course/2)
 
 ## Additional Resources
 
-- [Competitive Programmer’s Handbook](https://cses.fi/book/book.pdf)
+- [Competitive Programmer’s Handbook](cph)
 - [How to start Competitive Programming? For
   beginners!](https://www.youtube.com/watch?v=xAeiXy8-9Y8)
 - [From Beginner to Grandmaster - Complete Roadmap for Competitive
