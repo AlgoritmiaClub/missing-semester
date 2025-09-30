@@ -1,11 +1,11 @@
 # [226. Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
 
-### Naive Solution
+### Problem Insight
 
-A straightforward approach is to visit every node in the tree and swap its left
-and right children. This can be done with either depth-first or breadth-first
-traversal. The operation is local and requires no extra computation beyond the
-swap itself.
+The core idea is simple: for each node in the tree, swap its left and right
+children. This can be achieved through any form of traversal — depth-first or
+breadth-first. Since every node is processed once and only requires a local
+swap, the solution is straightforward.
 
 ### Recursive DFS (sol 1)
 
