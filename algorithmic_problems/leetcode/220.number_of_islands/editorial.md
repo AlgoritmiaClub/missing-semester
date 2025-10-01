@@ -9,8 +9,8 @@ would be revisited many times.
 
 - **Time:** In the worst case, each land cell could be revisited for every
   neighboring cell that triggers a fresh exploration. This can blow up to
-  roughly $O((m \cdot n)^2)$ in pathological cases, since each DFS/BFS
-  exploration may re-scan large parts of the grid redundantly.
+  roughly $O((m \cdot n)^2)$ in extreme or very unfavorable cases, since each
+  DFS/BFS exploration may re-scan large parts of the grid redundantly.
 - **Space:** $O(1)$ beyond the input grid, as no persistent visited tracking is
   maintained.
 
@@ -39,5 +39,7 @@ the number of distinct connected components (roots) gives the number of islands.
 
 - **Naive:** Up to $O((m \cdot n)^2)$ time, $O(1)$ space.
 - **DFS (sol 1) / BFS (sol 2):** $O(m \cdot n)$ time, $O(m \cdot n)$ space.
-- **DSU (sol 3):** $O(m \cdot n \cdot \alpha(m \cdot n))$ time (almost linear,
-  where $\alpha$ is the inverse Ackermann function), $O(m \cdot n)$ space.
+- **DSU (sol 3):** $O(m \cdot n \cdot \alpha(m \cdot n))$ time (almost linear),
+  where $\alpha$ is the inverse Ackermann function.\
+  For all practical input sizes (even billions), $\alpha(n) \leq 4$.\
+  Space is $O(m \cdot n)$ for DSU parent/rank arrays.
