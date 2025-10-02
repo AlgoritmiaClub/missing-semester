@@ -7,6 +7,8 @@ videos, courses, articles, books, documentation, etc.
 
 ## Categories
 
+- [DSA](dsa/README.md). Data Structures and Algorithms.
+- [Math](math/README.md). Math for Computer Science.
 - [Tools](tools/README.md). Programmer tools.
 
 ## Contributing
@@ -23,8 +25,8 @@ do so, then create a pull request with your changes:
 
 - Upload references to resources, such as links or brief instructions on how to
   get access to the resource, but do not upload the resources themselves. This
-  is to prevent issues with copyright, resources becoming updated and bloating
-  the repository with multimedia contents.
+  is to prevent issues with copyright and resources becoming updated and
+  bloating the repository with multimedia contents.
 
 - Avoid listing trivial resources, such as wikipedia pages or official
   documentation (on special cases like the offial docs being obscure, or
