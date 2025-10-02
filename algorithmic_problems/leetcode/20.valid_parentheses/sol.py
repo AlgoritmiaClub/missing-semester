@@ -8,9 +8,11 @@ class Solution:
                 if not stack:
                     return False
                 top = stack[-1]
-                if (top == "(" and c == ")") or \
-                   (top == "[" and c == "]") or \
-                   (top == "{" and c == "}"):
+                if (
+                    (top == "(" and c == ")")
+                    or (top == "[" and c == "]")
+                    or (top == "{" and c == "}")
+                ):
                     stack.pop()
                 else:
                     return False
