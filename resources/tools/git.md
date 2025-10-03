@@ -54,7 +54,7 @@ setup.
 
 ### Git Tower - Basic Git Workflow [article | introductory]
 
-[Git Tower - Basic Git Workflow](https://www.git-tower.com/learn/git/ebook/en/command-line/basics/basic-workflow#start)
+[Git Tower Basic Git Workflow](https://www.git-tower.com/learn/git/ebook/en/command-line/basics/basic-workflow)
 
 This guide walks through the basic Git workflow using the command line. It
 covers key concepts like repositories, commits, staging changes, and version
@@ -62,13 +62,24 @@ control, making it a great resource for beginners.
 
 ---
 
-### Git Cheatsheet by NDP Software [cheatsheet | intermediate]
+### Git Official Cheat Sheet [cheatsheet | intermediate]
 
-[Git Cheatsheet by NDP Software](https://ndpsoftware.com/git-cheatsheet.html)
+[Git Official Cheat Sheet](https://git-scm.com/cheat-sheet)
 
-An interactive visual cheatsheet that maps Git commands to common version
-control tasks. Great for quickly understanding how different Git operations
-relate to each other.
+A concise printable reference created by the official Git project. It summarizes
+everyday commands for setup, branching, staging, committing, and working with
+remotes. Useful as a quick lookup when learning or refreshing Git basics.
+
+---
+
+### GitHub Education Cheat Sheet [cheatsheet | intermediate]
+
+[GitHub Education Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+
+A beginner-friendly PDF guide from GitHub Education. It presents Git concepts
+alongside core commands for version control and collaboration. Designed for
+students and educators, it serves as an accessible starting point to practice
+essential Git workflows.
 
 ---
 
