@@ -9,7 +9,7 @@ clang_format_version='^18'
 # Check rust toolchain
 if ! command -v cargo >/dev/null; then
     echo "Installing rust toolchain"
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    curl --ssl-no-revoke --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
