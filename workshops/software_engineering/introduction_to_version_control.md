@@ -9,15 +9,15 @@
   development.
 - Explore Git's internal model and core concepts, the three states, commits,
   branches, and remotes.
-- Explain how to use the Git CLI, configure it, access help,
-  and perform the basic day-to-day commands.
+- Explain how to use the Git CLI, configure it, access help, and perform the
+  basic day-to-day commands.
 -->
 
 [pro]: https://git-scm.com/book/en/v2
 
 # Introduction to Software Version Control and Git
 
-`2/Oct/2025`
+`8/Oct/2025`
 
 ---
 
@@ -50,9 +50,9 @@ originally created to meet the needs of the Linux project. Its creator, Linus
 Torvalds, designed it to be distributed, blazingly fast, scalable to Linux-sized
 projects, and flexible enough to support a wide variety of workflows.
 
-Although Git is not the only VCS (some companies, most notably Meta, use other
-VCS or proprietary systems), it has become the industry standard, according to
-this 2023
+Although Git is not the only VCS (some companies use other public VCSs or
+proprietary solutions), it has become the industry standard. According to this
+2023
 [Stack Overflow blog](https://stackoverflow.blog/2023/01/09/beyond-git-the-other-version-control-systems-developers-use/).
 93% of developers worldwide use Git. In practice, this means you will almost
 certainly use it at some point in your career.
@@ -78,24 +78,35 @@ others without losing track of the project's state.
 
 ### Commits as Snapshots
 
-A commit in Git is a snapshot of the entire project tree at the moment you
-commit, including every file that is tracked, and some metadata like the author
-and timestamp. Even though it records the full state of the project, Git is
-smart. If a file hasn't changed, Git doesn't duplicate it but simply reuses the
-data from previous commits. This makes storing snapshots efficient while still
-giving you the ability to restore your project to any point in time.
+A commit in Git is a snapshot of the entire project at the moment you commit,
+including every file that is tracked, and some metadata like the author and
+timestamp. Even though it records the full state of the project, Git is smart.
+If a file hasn't changed, Git doesn't duplicate it but simply reuses the data
+from previous commits. This makes storing snapshots efficient while still giving
+you the ability to restore your project to any point in time.
 
-Each commit is identified by a unique cryptographic checksum (a SHA-1 hash).
-This checksum acts like a fingerprint. If even a single character in a file
-changes, the resulting commit hash will be completely different. This guarantees
-integrity and makes it impossible to alter history without detection.
+Each commit is identified by a unique cryptographic checksum (a SHA-1 hash by
+default). This checksum acts like a fingerprint. If even a single character in a
+file changes, the resulting commit hash will be completely different. This
+guarantees integrity and makes it impossible for data corruption to go
+undetected.
 
-Commits are also linked together in a chain through parent relationships. Every
-commit (except the very first one) has at least one parent commit, forming a
-history that Git can walk through. When branches diverge and merge, commits can
-have multiple parents, which is how Git represents merges. Thanks to this
+Commits are also linked together in a chain through parenthood relationships.
+Every commit (except the very first one) has at least one parent commit, forming
+a history that Git can walk through. When branches diverge and merge, commits
+can have multiple parents, which is how Git represents merges. Thanks to this
 structure, Git can always tell what came before and can reliably track the
-evolution of a project over time.
+evolution of every file in your project over time.
+
+The distinction between snapshot commits and diff commits is crucial, as it
+reveals how Git truly operates under the hood. Some impacts of this design on
+Git's behaviour are:
+
+- Branch divergence and the 3-way merge, as Git computes the differences between
+  each branch and their common base commit, a process that depends on the
+  repository's history and context, not just a direct comparison of changes.
+- Git's ability to efficiently compute diffs between arbitrary commits,
+  regardless of the past history.
 
 #### Diff Commits Diagram
 
@@ -114,25 +125,40 @@ evolution of a project over time.
 Three of Git's strongest features are integrity, locality, and recovery.
 
 - Integrity means that everything Git stores is protected by cryptographic
-  checksums. Your data cannot be corrupted without Git detecting it.
+  checksums, this includes commits, files, directories and even tags. Your data
+  cannot be corrupted without Git detecting it, which have a significant
+  security impact too (anyone can verify the authenticity of a repo).
 
-- Locality means every clone of a repo contains the full project history,
-  enabling offline work and independent backups.
+- Locality means every clone of a repo contains the full project database, which
+  includes every past version of the project, enabling offline work on any of
+  this versions. As every developer and server is a full backup, the system has
+  no single point of failure, which provides an astonishing reseliance against
+  data loss.
 
-- Recovery is possible because Git never truly deletes data immediately. Even if
-  you make mistakes, you can often recover lost commits using features like the
-  reflog. These guarantees give developers confidence that their work is safe
-  and traceable.
+- Recovery is possible because Git never truly deletes data immediately. Even
+  after you execute a destructive action, you can often recover lost commits and
+  files using features like the reflog. These guarantees give developers
+  confidence that their work is safe and traceable.
 
 ### The Three States
 
 To understand Git, it's essential to know its three states:
 
-- The working directory, where you actively edit files.
+- The working directory. A direct view of the snapshot corresponding to the
+  current commit, any changes performed here only impact your local files and
+  not the repo, meaning they are not source controlled yet. Which is why
+  unstaged/uncommitted edits are often a source of data loss.
 
-- The staging area (index), where you prepare changes you intend to commit.
+- The staging area or index. Serves as the intermediary between the working
+  directory and the repository. Files “staged” are saved here exactly as they
+  are, while any subsequent edits to those files remain in the working
+  directory. The index initially (after checkout) contains the snapshot of the
+  last commit, and Git's default status report compares the index against the
+  working directory to show what has been modified but not yet staged.
 
-- The repo, where committed snapshots are stored permanently.
+- The repository. Stores all committed snapshots permanently as part of Git's
+  versioned database. Once changes are committed, they become immutable and are
+  referenced by cryptographic hashes, ensuring both integrity and traceability.
 
 This model allows precise control, as you can decide which edits to commit, keep
 some changes unstaged, or revert back at any point.
@@ -152,8 +178,9 @@ some changes unstaged, or revert back at any point.
 
 A branch in Git is simply a movable pointer to a commit. The default branch is
 usually called `main` or `master`. When you create a new branch, Git makes a
-pointer that starts at the current commit, and as you add new commits, that
-branch pointer advances automatically.
+pointer that starts at the specified commit, and as you add new commits, that
+branch pointer advances automatically. This represent the attached head state,
+where the special pointer `HEAD` is pointing to a branch.
 
 Because branches are lightweight, Git encourages developers to create many of
 them, one branch for each feature, bug fix, or experiment. This makes it safe to
@@ -168,6 +195,15 @@ history of collaborators and allow you to share your own work. For example,
 By pushing and pulling, local branches can stay synchronized with their remote
 counterparts, enabling effective teamwork across different machines and
 locations.
+
+A common confusion is the meaning of a `detached HEAD state`. This simply means
+that Git's HEAD pointer, which tracks a branch in the `attached HEAD state`, is
+now pointing to a specific commit instead. This happens when you checkout
+anything that isn't a local branch, like an old commit. In this state, you can
+freely explore or make temporary edits, but any new commits you create won't
+belong to any branch unless you explicitly attach them to one, which is why git
+disallows you to do it. To reenter the `attached HEAD state` safely store your
+changes if you have some, and then checkout the branch you want to continue on.
 
 #### Diverging Branches Diagram
 
@@ -204,9 +240,7 @@ multiple parents, linking previously diverged histories back together. By
 walking this graph, Git can answer powerful questions, like:
 
 - When was this line of code introduced?
-
 - What changes were made between two points in history?
-
 - How did two branches diverge, and where do they join again?
 
 #### This Repo's History
