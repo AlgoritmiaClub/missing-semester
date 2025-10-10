@@ -6,19 +6,16 @@ Given an integer `numRows`, return the first `numRows` of Pascal’s Triangle.
 In Pascal’s Triangle, each number is the sum of the two numbers directly above
 it.
 
-Example:
+**Example:**
 
-```bash
-Input: numRows = 5
+Input: numRows = 5\
 Output:
-[
-[1],
-[1,1],
-[1,2,1],
-[1,3,3,1],
-[1,4,6,4,1]
-]
-```
+
+- [1]
+- [1, 1]
+- [1, 2, 1]
+- [1, 3, 3, 1]
+- [1, 4, 6, 4, 1]
 
 ### Building up to the solution
 
@@ -49,24 +46,18 @@ Let's remember that, in order to construct the `i`-th row, we only need the
 So, accessing the desired row in any given iteration where $i > 0$, can be done
 by:
 
-```bash
 desired_row = triangle[i - 1]
-```
 
 Given that `desired_row` is just a list, we can access its elements by doing the
 following:
 
-```bash
 desired_element_from_row = desired_row[j]
-```
 
 $0 \le j < \text{len(desired\_row)}$
 
 Hence:
 
-```bash
 desired_element_from_row = triangle[i - 1][j]
-```
 
 ### Approach
 
