@@ -8,23 +8,21 @@ Return the answer in any order.
 
 The mapping of digits to letters is as follows (just like on a phone keypad):
 
-```bash
-2 -> abc
-3 -> def
-4 -> ghi
-5 -> jkl
-6 -> mno
-7 -> pqrs
-8 -> tuv
-9 -> wxyz
-```
+| Digit | Letters |
+|-------|---------|
+| 2     | a, b, c |
+| 3     | d, e, f |
+| 4     | g, h, i |
+| 5     | j, k, l |
+| 6     | m, n, o |
+| 7     | p, q, r, s |
+| 8     | t, u, v |
+| 9     | w, x, y, z |
 
 Example:
 
-```bash
 Input: digits = "23"
 Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
-```
 
 ### Building up to the solution
 
@@ -35,23 +33,17 @@ letters when arranged in order according to the digits given.
 
 For example:
 
-```bash
 2 → ["a","b","c"]
 3 → ["d","e","f"]
-```
 
 All possible combinations are every possible way to pick one letter from each
 set:
 
-```bash
 ["a","b","c"] × ["d","e","f"]
-```
 
 That gives:
 
-```bash
 ["ad","ae","af","bd","be","bf","cd","ce","cf"]
-```
 
 This operation is known as the Cartesian product of two sets. Each new digit
 simply extends the existing list of combinations by appending its possible
