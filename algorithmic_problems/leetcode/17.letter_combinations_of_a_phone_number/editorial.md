@@ -1,12 +1,8 @@
 # [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 
-**Problem.**\
-Given a string containing digits from 2-9 inclusive, return all possible letter
-combinations that the number could represent.
+**Let's take this into account...**
 
-Return the answer in any order.
-
-The mapping of digits to letters is as follows (just like on a phone keypad):
+- The mapping of digits to letters is as follows (just like on a phone keypad):
 
 | Digit | Letters    |
 | ----- | ---------- |
@@ -22,6 +18,8 @@ The mapping of digits to letters is as follows (just like on a phone keypad):
 Example:
 
 Input: digits = "23" Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+
+- We can return the answer in any order.
 
 ### Building up to the solution
 
