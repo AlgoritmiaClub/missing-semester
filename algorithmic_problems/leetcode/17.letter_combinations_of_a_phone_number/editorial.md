@@ -8,21 +8,20 @@ Return the answer in any order.
 
 The mapping of digits to letters is as follows (just like on a phone keypad):
 
-| Digit | Letters |
-|-------|---------|
-| 2     | a, b, c |
-| 3     | d, e, f |
-| 4     | g, h, i |
-| 5     | j, k, l |
-| 6     | m, n, o |
+| Digit | Letters    |
+| ----- | ---------- |
+| 2     | a, b, c    |
+| 3     | d, e, f    |
+| 4     | g, h, i    |
+| 5     | j, k, l    |
+| 6     | m, n, o    |
 | 7     | p, q, r, s |
-| 8     | t, u, v |
+| 8     | t, u, v    |
 | 9     | w, x, y, z |
 
 Example:
 
-Input: digits = "23"
-Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+Input: digits = "23" Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
 ### Building up to the solution
 
@@ -33,8 +32,7 @@ letters when arranged in order according to the digits given.
 
 For example:
 
-2 → ["a","b","c"]
-3 → ["d","e","f"]
+2 → ["a","b","c"] 3 → ["d","e","f"]
 
 All possible combinations are every possible way to pick one letter from each
 set:
