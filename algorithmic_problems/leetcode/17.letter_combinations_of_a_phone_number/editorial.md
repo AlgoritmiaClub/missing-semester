@@ -80,14 +80,13 @@ It would be most useful to visualize it as a tree:
 
 ""
 
-/          |          \
+/ | \
 
-"a"         "b"         "c"
+"a" "b" "c"
 
-/  |   \    /  |   \    /  |   \
+/ | \ / | \ / | \
 
 “ad”“ae”“af”“bd”“be”“bf”“cd”“ce”“cf”
-
 
 This tree structure models the backtracking recursion:
 
