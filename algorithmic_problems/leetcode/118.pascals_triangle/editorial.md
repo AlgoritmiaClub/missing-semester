@@ -1,8 +1,6 @@
 # [118. Pascal’s Triangle](https://leetcode.com/problems/pascals-triangle/)
 
 **Problem.**\
-Given an integer `numRows`, return the first `numRows` of Pascal’s Triangle.
-
 In Pascal’s Triangle, each number is the sum of the two numbers directly above
 it.
 
@@ -29,13 +27,15 @@ Output:
 
 If you visualize the triangle:
 
-```bash
-    1
-   1 1
-  1 2 1
- 1 3 3 1
+1
+
+1 1
+
+1 2 1
+
+1 3 3 1
+
 1 4 6 4 1
-```
 
 you can see that every non-edge number has two parents above it: one to the left
 and one to the right.
@@ -46,14 +46,14 @@ Let's remember that, in order to construct the `i`-th row, we only need the
 So, accessing the desired row in any given iteration where $i > 0$, can be done
 by:
 
-desired_row = triangle[i - 1]
+desiredRow = triangle[i - 1]
 
-Given that `desired_row` is just a list, we can access its elements by doing the
+Given that `desiredRow` is just a list, we can access its elements by doing the
 following:
 
-desired_element_from_row = desired_row[j]
+desired_element_from_row = desiredRow[j]
 
-$0 \le j < \text{len(desired\_row)}$
+$0 \le j < \text{len(desiredRow)}$
 
 Hence:
 
