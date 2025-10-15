@@ -30,12 +30,12 @@ letters when arranged in order according to the digits given.
 
 For example:
 
-2 → ["a","b","c"] 3 → ["d","e","f"]
+2 -> ["a","b","c"] 3 -> ["d","e","f"]
 
 All possible combinations are every possible way to pick one letter from each
 set:
 
-["a","b","c"] × ["d","e","f"]
+["a","b","c"] x ["d","e","f"]
 
 That gives:
 
@@ -78,13 +78,16 @@ This approach naturally explores all the conbinations.
 
 It would be most useful to visualize it as a tree:
 
-```bash
-                ""
-      /          |          \
-    "a"         "b"         "c"
-  /  |   \    /  |   \    /  |   \
+""
+
+/          |          \
+
+"a"         "b"         "c"
+
+/  |   \    /  |   \    /  |   \
+
 “ad”“ae”“af”“bd”“be”“bf”“cd”“ce”“cf”
-```
+
 
 This tree structure models the backtracking recursion:
 
@@ -98,17 +101,17 @@ This tree structure models the backtracking recursion:
 2. Choose the first letter for the first digit:
    - Pick "a".
 3. Move to the second digit:
-   - Pick "d" → combination "ad" (store it)
-   - Backtrack to "a" and pick "e" → "ae" (store it)
-   - Backtrack to "a" and pick "f" → "af" (store it)
+   - Pick "d" -> combination "ad" (store it)
+   - Backtrack to "a" and pick "e" -> "ae" (store it)
+   - Backtrack to "a" and pick "f" -> "af" (store it)
 4. Backtrack to root and pick "b":
-   - "b" + "d" → "bd" (store it)
-   - "b" + "e" → "be" (store it)
-   - "b" + "f" → "bf" (store it)
+   - "b" + "d" -> "bd" (store it)
+   - "b" + "e" -> "be" (store it)
+   - "b" + "f" -> "bf" (store it)
 5. Backtrack to root and pick "c":
-   - "c" + "d" → "cd" (store it)
-   - "c" + "e" → "ce" (store it)
-   - "c" + "f" → "cf" (store it)
+   - "c" + "d" -> "cd" (store it)
+   - "c" + "e" -> "ce" (store it)
+   - "c" + "f" -> "cf" (store it)
 
 ### Although they both achieve the same goal...
 
